@@ -1,6 +1,11 @@
 import React from "react";
-
-export const UserCard = ({ item, dateFormate, deleteUser }) => {
+const dateFormate = (data) => {
+  const date = new Date(data * 1000);
+  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+  const formattedDate = date.toLocaleDateString("en-US", options);
+  return formattedDate;
+};
+export const UserCard = ({ item , deleteUser }) => {
   return (
     <React.Fragment>
       <div className=" bg-indigo-50 rounded shadow-lg mt-20">

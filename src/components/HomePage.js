@@ -5,6 +5,8 @@ import { UserCard } from "./UserCard";
 export const HomePage = () => {
   const [data, setData] = useState([]);
   const [sortBy, setSortBy] = useState("");
+  // const [isAsc, setAsc] = useState(false);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     fetch(
@@ -26,44 +28,52 @@ export const HomePage = () => {
   };
 
   const sortChange = (a, b) => {
-    switch (sortBy) {
-      case "total":
-        return a.twubric.total - b.twubric.total;
-      case "Friends":
-        return a.twubric.friends - b.twubric.friends;
-      case "Influence":
-        return a.twubric.influence - b.twubric.influence;
-      case "Chirpiness":
-        return a.twubric.chirpiness - b.twubric.chirpiness;
-      default:
-        return 0;
+    if (sortOrder === "asc") {
+      return a.twubric[sortBy] - b.twubric[sortBy];
+    } else {
+      return b.twubric[sortBy] - a.twubric[sortBy];
     }
   };
 
   const handleSortChange = (e) => {
-    setSortBy(e.target.value);
+     if (sortBy === e && sortOrder === "asc") {
+      setSortOrder("desc");
+    } else {
+      setSortOrder("asc");
+    }
+    setSortBy(e);
   };
 
-  const dateFormate = (data) => {
-    const date = new Date(data * 1000);
-    const options = { year: "numeric", month: "short", day: "numeric" };
-    const formattedDate = date.toLocaleDateString("en-US", options);
-    return formattedDate;
-  };
+  const dateFilter = (start , end) => {
+    const startDate = start.target.value;
+    console.log(startDate,"wssssssssssss")
+    const endDate = end.target.value;
+    console.log(endDate, "endddddddddd")
+  }
+
 
   return (
     <React.Fragment>
-      <Navbar handleSortChange={handleSortChange} />
+      <Navbar handleSortChange={handleSortChange} dateFilter={dateFilter}/>
       <div className="grid gap-5 m-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {data.sort(sortChange).map((item, i) => (
           <UserCard
             key={i}
             item={item}
             deleteUser={deleteUser}
-            dateFormate={dateFormate}
           />
         ))}
       </div>
     </React.Fragment>
   );
 };
+
+// const sortedData = [...data].sort((a, b) => {
+//   if (sortOrder === "asc") {
+//     return a.twubric[key] - b.twubric[key];
+//   } else {
+//     return b.twubric[key] - a.twubric[key];
+//   }
+// });
+// setData(sortedData);
+// setSortOrder(sortOrder === "asc" ? "desc" : "asc");
