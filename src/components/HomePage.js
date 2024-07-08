@@ -36,7 +36,7 @@ export const HomePage = () => {
   };
 
   const handleSortChange = (e) => {
-     if (sortBy === e && sortOrder === "asc") {
+    if (sortBy === e && sortOrder === "asc") {
       setSortOrder("desc");
     } else {
       setSortOrder("asc");
@@ -44,36 +44,21 @@ export const HomePage = () => {
     setSortBy(e);
   };
 
-  const dateFilter = (start , end) => {
+  const dateFilter = (start, end) => {
     const startDate = start.target.value;
-    console.log(startDate,"wssssssssssss")
+    console.log(startDate, "wssssssssssss");
     const endDate = end.target.value;
-    console.log(endDate, "endddddddddd")
-  }
-
+    console.log(endDate, "endddddddddd");
+  };
 
   return (
     <React.Fragment>
-      <Navbar handleSortChange={handleSortChange} dateFilter={dateFilter}/>
+      <Navbar handleSortChange={handleSortChange} dateFilter={dateFilter} />
       <div className="grid gap-5 m-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {data.sort(sortChange).map((item, i) => (
-          <UserCard
-            key={i}
-            item={item}
-            deleteUser={deleteUser}
-          />
+          <UserCard key={i} item={item} deleteUser={deleteUser} />
         ))}
       </div>
     </React.Fragment>
   );
 };
-
-// const sortedData = [...data].sort((a, b) => {
-//   if (sortOrder === "asc") {
-//     return a.twubric[key] - b.twubric[key];
-//   } else {
-//     return b.twubric[key] - a.twubric[key];
-//   }
-// });
-// setData(sortedData);
-// setSortOrder(sortOrder === "asc" ? "desc" : "asc");
