@@ -30,7 +30,7 @@ export const Navbar = ({ handleSortChange, dateFilter }) => {
               className="h-9 w-9 rounded-full mr-3"
               alt="error"
             ></img>
-            <h1 className="text-4xl font-bold sm:block hidden">Twubric</h1>
+            <h1 className="text-4xl font-bold sm:block hidden">Jwubric Site</h1>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1">
