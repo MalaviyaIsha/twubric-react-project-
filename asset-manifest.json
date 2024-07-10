@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/twubric-react-project-/static/css/main.6f33b104.css",
+    "main.js": "/twubric-react-project-/static/js/main.6d1b942a.js",
+    "static/js/453.4ff8db78.chunk.js": "/twubric-react-project-/static/js/453.4ff8db78.chunk.js",
+    "index.html": "/twubric-react-project-/index.html",
+    "main.6f33b104.css.map": "/twubric-react-project-/static/css/main.6f33b104.css.map",
+    "main.6d1b942a.js.map": "/twubric-react-project-/static/js/main.6d1b942a.js.map",
+    "453.4ff8db78.chunk.js.map": "/twubric-react-project-/static/js/453.4ff8db78.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f33b104.css",
+    "static/js/main.6d1b942a.js"
+  ]
+}
